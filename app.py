@@ -43,5 +43,22 @@ def submit():
                 db.session.commit()
                 return render_template('index.html', message='Form has been submitted.')
             return render_template('index.html', message='User is already registered.')
+@app.route('/users', methods =['POST'])
+def users():
+    if request.method == 'POST':
+        fName = request.form['FirstName']
+        lName = request.form['LastName']
+        if fName == '' and lName == '':
+            return render_template('index.html', message='Please fill out one of either field to search.')
+        elif lName == '':
+            query = db.session.query(Feedback).filter(Feedback.fName == fName).all()
+            users = query
+            return render_template('find.html', users=users)
+        elif fName == '':
+            query = db.session.query.select([Feedback]).where(Feedback.lName == lName)
+            users = query
+            return render_template('find.html', users=users)
+    return render_template('index.html')
+
 if __name__ == '__main__':
     app.run(debug = True)
