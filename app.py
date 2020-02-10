@@ -3,16 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
 app = app = Flask(__name__, template_folder='templates')
-ENV = 'dev'
-if ENV == 'dev':
-    app.debug = True
-#db_host = ""
-#db_name = "d90p31vkkl6td1"
-#db_user = "jkbvrgxdgnhcbh"
-#db_port = 5432
-#db_password = "0f737abe099ffc9dcc4d72375fa40bcbf1c1a5ca516ddc0040268f0e63edb50d"
-#db_conn = psycopg2.connect(host = db_host, port= db_port, dbname=db_name, user=db_user, password=db_password)
-#db_cursor = db_conn.cursor
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jkbvrgxdgnhcbh:0f737abe099ffc9dcc4d72375fa40bcbf1c1a5ca516ddc0040268f0e63edb50d@ec2-52-203-160-194.compute-1.amazonaws.com:5432/d90p31vkkl6td1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
