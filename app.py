@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request,redirect
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
 
-app = Flask(__name__)
+app = app = Flask(__name__, template_folder='templates')
 ENV = 'dev'
 if ENV == 'dev':
     app.debug = True
