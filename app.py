@@ -10,7 +10,7 @@ db_port = 5432
 db_password = "0f737abe099ffc9dcc4d72375fa40bcbf1c1a5ca516ddc0040268f0e63edb50d"
 
 db_conn = psycopg2.connect(host = db_host, port= db_port, dbname=db_name, user=db_user, password=db_password)
-db_cursor = cb_conn.cursor
+db_cursor = db_conn.cursor
 
 @app.route('/')
 def index():
