@@ -5,17 +5,26 @@
 {% endblock %}
 
 {% block body %}
-    <h1>List of Users</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-    </table>
-    <form action = "/" method = "POST">
-        <input type="text" name ="FirstName", id = "Fname">
-        <input type="text" name ="LastName", id = "Lname">
-        <input type="submit" value="Register">
-    </form>
+	<div class ="container">
+
+		{% if message %}
+      	<p class="message">{{ message | safe }}</p>
+		{% endif %}
+
+		<form action="/submit" method="POST">
+
+			<div class ="form-group">
+				<h3>First Name</h3>
+				<input type = "text" name = "FirstName" placeholder = "First Name" />
+			</div>
+
+			<div class = "form-group">
+				<h3>Last Name</h3>
+				<input type = "text" name = "LastName" placeholder = "Last Name" />
+			</div>
+
+			<input type="submit" value="Submit" class="btn"/>
+
+		</form>
+	</div>
 {% endblock %}
